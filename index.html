@@ -20,12 +20,12 @@
         >
             <a-assets>
                 <a-asset-item
-                    id="animated-asset"
+                    id="robot"
                     src="assets/robot.glb"
                 ></a-asset-item>
 
                 <a-asset-item
-                    id="animated-asset"
+                    id="books-1"
                     src="assets/education.glb"
                 ></a-asset-item>
 
@@ -42,11 +42,21 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
             >
+                THIS IS A TEXT
                 <a-entity
                     id="bowser-model"
-                    scale="9.294635058823268 9.294635058823268 9.294635058823268"
+                    scale="3 3 3"
                     animation-mixer="loop: repeat"
-                    gltf-model="#animated-asset"
+                    gltf-model="#robot"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+
+                <a-entity
+                    id="bowser-model"
+                    scale="3 3 3"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#books-1"
                     class="clickable"
                     gesture-handler
                 ></a-entity>
