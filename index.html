@@ -30,7 +30,7 @@
                 ></a-asset-item>
 
                 <a-asset-item
-                    id="books-1"
+                    id="books"
                     src="assets/education.glb"
                 ></a-asset-item>
 
@@ -58,7 +58,7 @@
                 ></a-entity>
             </a-marker> -->
 
-            <a-marker-camera
+            <a-marker
                 id="animated-marker"
                 type="pattern"
                 preset="custom"
@@ -72,11 +72,11 @@
                     id="bowser-model"
                     scale="1 1 1"
                     animation-mixer="loop: repeat"
-                    gltf-model="#books-1"
+                    gltf-model="#books"
                     class="clickable"
                     gesture-handler
                 ></a-entity>
-            </a-marker-camera>
+            </a-marker>
 
             <a-entity camera></a-entity>
         </a-scene>
