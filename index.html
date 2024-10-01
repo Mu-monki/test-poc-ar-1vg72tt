@@ -8,6 +8,17 @@
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
     </head>
 
+    <script>
+        AFRAME.registerComponent('markerhandler', {
+          init: function () {
+            this.el.sceneEl.addEventListener('markerFound', () => {
+                console.log('*** Marker Found ***')
+                alert('Marker Found')
+            })
+          }
+        });
+      </script>
+
     <body style="margin: 0; overflow: hidden;">
         <a-scene
             vr-mode-ui="enabled: false;"
@@ -41,7 +52,7 @@
                 id="animated-marker"
                 type="pattern"
                 preset="custom"
-                url="marker.patt"
+                url="assets/marker.patt"
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
