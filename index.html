@@ -71,11 +71,10 @@
                 raycaster="objects: .clickable"
                 emitevents="true"
                 cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
             >
                 <a-entity
                     id="bowser-model"
-                    scale="2 2 2"
+                    scale="1 1 1"
                     animation-mixer="loop: repeat"
                     gltf-model="#turtle"
                     class="clickable"
@@ -83,10 +82,41 @@
                 ></a-entity>
                 <a-entity
                     id="bowser-model-2"
-                    scale="2 2 2"
+                    scale="1 1 1"
                     position="3 7 1"
                     animation-mixer="loop: repeat"
                     gltf-model="#whale"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <!-- TEST -->
+            
+            <a-marker
+                id="animated-marker-a"
+                type="pattern"
+                preset="custom"
+                url="assets/markers/letterA.patt"
+                raycaster="objects: .clickable"
+                emitevents="true"
+                cursor="fuse: false; rayOrigin: mouse;"
+                id="markerA"
+            >
+                <a-entity
+                    id="bowser-model-robot"
+                    scale="1 1 1"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#robot"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+                <a-entity
+                    id="bowser-model-drone"
+                    scale="1 1 1"
+                    position="3 7 1"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#drone"
                     class="clickable"
                     gesture-handler
                 ></a-entity>
