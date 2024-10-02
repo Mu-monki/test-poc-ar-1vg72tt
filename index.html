@@ -90,7 +90,10 @@
                     gltf-model="#whale"
                     class="clickable"
                     gesture-handler
-                ></a-entity>
+                >
+                    <a-box color="red" position="0 -1 0"></a-box>
+                    <a-animation attribute="rotation" dur="4000" fill="forwards" to="0 0 360" repeat="indefinite"></a-animation>
+                </a-entity>
             </a-marker>
 
             <!-- TEST -->
