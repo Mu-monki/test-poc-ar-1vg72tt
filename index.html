@@ -26,11 +26,12 @@
             vr-mode-ui="enabled: false;"
             loading-screen="enabled: true;"
             renderer="logarithmicDepthBuffer: true;"
-            arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: true;"
+            arjs="detectionMode: mono_and_matrix; matrixCodeType: 3x3;"
             id="scene"
             embedded
             gesture-detector
         >
+            <!-- arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: true;" -->
             <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
                 <button>
                     HIDE OBJECTS
@@ -98,13 +99,10 @@
 
             <!-- TEST -->
             
-            <a-marker-camera
+            <a-marker
                 id="marker-klimabukasan"
-                type="custom"
-                preset="custom"
-                url="assets/markers/klimabukasan.patt"
-                raycaster="objects: .clickable"
-                cursor="fuse: false; rayOrigin: mouse;"
+                type="barcode"
+                value="0"
             >
                 <a-entity
                     id="bowser-model-drone"
@@ -115,7 +113,7 @@
                     class="clickable"
                     gesture-handler
                 ></a-entity>
-            </a-marker-camera>
+            </a-marker>
 
             <!-- <a-marker
                 id="animated-marker"
