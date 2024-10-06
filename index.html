@@ -88,10 +88,11 @@
                     position="2 4 2"
                     animation-mixer="loop: repeat"
                     gltf-model="#whale"
-                    animation="property: rotation; to: 0 360 0; loop: true; dur: 20000"
+                    animation="property: object3D.position.y; to: 115; loop: true; dur:1000"
                     class="clickable"
                     gesture-handler
                 >
+                <!-- animation="property: rotation; to: 0 360 0; loop: true; dur: 20000" -->
                     <a-box color="red" position="0 -8 0"></a-box>
                     <a-animation attribute="rotation" dur="4000" fill="forwards" to="0 0 360" repeat="indefinite"></a-animation>
                 </a-entity>
