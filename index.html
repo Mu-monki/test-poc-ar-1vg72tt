@@ -92,18 +92,15 @@
                     class="clickable"
                     gesture-handler
                 >
-                <!-- animation="property: rotation; to: 0 360 0; loop: true; dur: 20000" -->
-                    <a-box color="red" position="0 -8 0"></a-box>
-                    <a-animation attribute="rotation" dur="4000" fill="forwards" to="0 0 360" repeat="indefinite"></a-animation>
                 </a-entity>
             </a-marker>
 
             <!-- TEST -->
             
-            <a-marker
-                id="animated-marker-a"
+            <a-marker-camera
+                id="marker-klimabukasan"
                 type="pattern"
-                url="assets/markers/letterC.patt"
+                url="assets/markers/klimabukasan.patt"
                 raycaster="objects: .clickable"
                 cursor="fuse: false; rayOrigin: mouse;"
             >
@@ -124,7 +121,7 @@
                     class="clickable"
                     gesture-handler
                 ></a-entity>
-            </a-marker>
+            </a-marker-camera>
 
             <!-- <a-marker
                 id="animated-marker"
