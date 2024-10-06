@@ -105,11 +105,27 @@
                 value="0"
             >
                 <a-entity
-                    id="bowser-model-drone"
-                    scale="0.5 0.5 0.5"
-                    position="0 0 0"
+                    id="bowser-model"
+                    scale="0.7 0.7 0.7"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#turtle"
+                    position="-2 0 0"
+                    class="clickable"
+                    gesture-handler
+                ></a-entity>
+            </a-marker>
+
+            <a-marker
+                id="marker-klimabukasan"
+                type="barcode"
+                value="1"
+            >
+                <a-entity
+                    id="bowser-model"
+                    scale="0.7 0.7 0.7"
                     animation-mixer="loop: repeat"
                     gltf-model="#drone"
+                    position="-2 0 0"
                     class="clickable"
                     gesture-handler
                 ></a-entity>
