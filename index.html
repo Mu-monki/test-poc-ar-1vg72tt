@@ -151,21 +151,24 @@
                     class="clickable"
                     gesture-handler
                 >
-                    <a-text value="It's a Turtle" position="0 0 0" geometry="primitive:plane">
-                </a-text>
                 </a-entity>
+            </a-marker>
+            <a-marker
+                id="marker-sakunwari"
+                type="barcode"
+                value="1"
+                markerhandler
+            >
                 <a-entity
                     id="bowser-model-2"
-                    scale="0.7 0.7 0.7"
-                    position="2 4 2"
+                    scale="0.5 0.5 0.5"
+                    position="0 2 0"
                     animation-mixer="loop: repeat"
                     gltf-model="#whale"
                     animation="property: object3D.position.x; to: 1; loop: true; dur:9000"
                     class="clickable"
                     gesture-handler
                 >
-                    <a-text value="It's a Whale" position="7 4 2" animation="property: object3D.position.x; to: 1; loop: true; dur:9000" geometry="primitive:plane">
-                    </a-text>
                 </a-entity>
             </a-marker>
 
