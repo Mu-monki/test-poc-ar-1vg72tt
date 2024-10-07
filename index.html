@@ -75,6 +75,10 @@
                             break;
                     }
                 });
+
+                scene.addEventListener('markerLost', () => {
+                    sakunwari_audio.pause();
+                });
             }
         });
       </script>
