@@ -13,14 +13,39 @@
     </head>
 
     <script>
+        // AFRAME.registerComponent('markerhandler', {
+        //   init: function () {
+        //     const sakunwari_marker = document.getElementById('marker-klimabukasan'); // Replace with the ID of your marker entity
+        //     const sakunwari_audio = document.getElementById('sakunwari-audio');
+
+        //     sakunwari_marker.addEventListener('markerFound', () => {
+        //         console.log('MARKER FOUND!')
+        //         sakunwari_audio.play();
+        //     });
+
+
+        //     sakunwari_marker.addEventListener('markerLost', () => {
+        //         console.log('MARKER LOST!')
+        //         sakunwari_audio.pause();
+        //     });
+        //   }
+        // });
         AFRAME.registerComponent('markerhandler', {
-          init: function () {
-            this.el.sceneEl.addEventListener('markerFound', () => {
-                console.log('*** Marker Found ***')
-                alert('Marker Found')
-            })
-          }
-        });
+            init: function () {
+                const sakunwari_marker = this.el.querySelector('#marker-klimabukasan');
+                const sakunwari_audio = this.el.querySelector('#sakunwari-audio');
+
+                sakunwari_marker.addEventListener('markerFound', () => {
+                console.log('MARKER FOUND!')
+                sakunwari_audio.play();
+                });
+
+                sakunwari_marker.addEventListener('markerLost', () => {
+                console.log('MARKER LOST!')
+                sakunwari_audio.pause();
+                });
+            }
+            });
       </script>
 
     <body style="margin: 0; overflow: hidden;">
