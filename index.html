@@ -35,9 +35,11 @@
                 const sakunwari_marker = this.el.querySelector('#marker-klimabukasan');
                 const sakunwari_audio = this.el.querySelector('#sakunwari-audio');
 
-                sakunwari_marker.addEventListener('markerFound', () => {
-                console.log('MARKER FOUND!')
-                sakunwari_audio.play();
+                sakunwari_marker.addEventListener('markerFound', (e) => {
+                    const marker_id = event.target.id;
+                    console.log('MARKER FOUND!')
+                    console.log('MARKER ID: ', marker_id)
+                    sakunwari_audio.play();
                 });
 
                 sakunwari_marker.addEventListener('markerLost', () => {
