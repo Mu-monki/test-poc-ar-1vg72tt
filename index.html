@@ -39,7 +39,15 @@
                     const marker_id = event.target.id;
                     console.log('MARKER FOUND!')
                     console.log('MARKER ID: ', marker_id)
-                    sakunwari_audio.play();
+
+                    switch(marker_id) {
+                        case 'marker-klimabukasan':
+                            // sakunwari_audio.play(); 
+                            break;
+                        case 'marker-sakunwari':
+                            sakunwari_audio.play(); 
+                            break;     
+                    }
                 });
 
                 sakunwari_marker.addEventListener('markerLost', () => {
