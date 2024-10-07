@@ -76,8 +76,9 @@
                     }
                 });
 
-                scene.addEventListener('markerLost', () => {
+                scene.addEventListener('markerLost', (e) => {
                     console.log('MARKER LOST!')
+                    console.log('EVENT', e)
                     const sakunwariAudio = document.getElementById('sakunwari-audio');
                     sakunwari_audio.pause();
                 });
