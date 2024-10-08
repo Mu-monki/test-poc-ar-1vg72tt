@@ -13,47 +13,8 @@
     </head>
 
     <script>
-        // AFRAME.registerComponent('markerhandler', {
-        //   init: function () {
-        //     const sakunwari_marker = document.getElementById('marker-klimabukasan'); // Replace with the ID of your marker entity
-        //     const sakunwari_audio = document.getElementById('sakunwari-audio');
-
-        //     sakunwari_marker.addEventListener('markerFound', () => {
-        //         console.log('MARKER FOUND!')
-        //         sakunwari_audio.play();
-        //     });
-
-
-        //     sakunwari_marker.addEventListener('markerLost', () => {
-        //         console.log('MARKER LOST!')
-        //         sakunwari_audio.pause();
-        //     });
-        //   }
-        // });
         AFRAME.registerComponent('markerhandler', {
             init: function () {
-                // const sakunwari_marker = this.el.querySelector('#marker-klimabukasan');
-                // const sakunwari_audio = this.el.querySelector('#sakunwari-audio');
-
-                // sakunwari_marker.addEventListener('markerFound', (e) => {
-                //     const marker_id = event.target.id;
-                //     console.log('MARKER FOUND!')
-                //     console.log('MARKER ID: ', marker_id)
-
-                //     switch(marker_id) {
-                //         case 'marker-klimabukasan':
-                //             // sakunwari_audio.play(); 
-                //             break;
-                //         case 'marker-sakunwari':
-                //             sakunwari_audio.play(); 
-                //             break;     
-                //     }
-                // });
-
-                // sakunwari_marker.addEventListener('markerLost', () => {
-                // console.log('MARKER LOST!')
-                // sakunwari_audio.pause();
-                // });
                 const scene = this.el.sceneEl;
                 const audioElements = scene.querySelectorAll('audio');
 
@@ -148,39 +109,6 @@
 
                 <audio id="sakunwari-audio" src="assets//audio/sakunwari-sample.mp3" preload="auto"></audio>
             </a-assets>
-            <!-- url="assets/marker.patt" -->
-            <!-- <a-marker
-                id="animated-marker"
-                type="pattern"
-                preset="custom"
-                url="assets/marker.patt"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-            >
-                <a-entity
-                    id="bowser-model"
-                    scale="0.7 0.7 0.7"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#turtle"
-                    position="-2 0 0"
-                    class="clickable"
-                    gesture-handler
-                ></a-entity>
-                <a-entity
-                    id="bowser-model-2"
-                    scale="0.7 0.7 0.7"
-                    position="2 4 2"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#whale"
-                    animation="property: object3D.position.x; to: 1; loop: true; dur:9000"
-                    class="clickable"
-                    gesture-handler
-                >
-                </a-entity>
-            </a-marker> -->
-
-            <!-- TEST -->
             
             <a-marker
                 id="marker-klimabukasan"
@@ -258,42 +186,6 @@
                 >
                 </a-entity>
             </a-marker>
-
-            <!-- <a-marker
-                id="marker-sakunwari"
-                type="barcode"
-                value="1"
-            >
-                <a-entity
-                    id="bowser-model-2"
-                    scale="0.7 0.7 0.7"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#drone"
-                    position="0 0 0"
-                    class="clickable"
-                    gesture-handler
-                ></a-entity>
-            </a-marker> -->
-
-            <!-- <a-marker
-                id="animated-marker"
-                type="pattern"
-                preset="custom"
-                url="assets/marker.patt"
-                raycaster="objects: .clickable"
-                emitevents="true"
-                cursor="fuse: false; rayOrigin: mouse;"
-                id="markerA"
-            >
-                <a-entity
-                    id="bowser-model"
-                    scale="1 1 1"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#books"
-                    class="clickable"
-                    gesture-handler
-                ></a-entity>
-            </a-marker> -->
 
             <a-entity camera></a-entity>
             <!-- <a-camera id='camera1' look-controls-enabled='false' arjs-look-controls='smoothingFactor: 0.1' gps-projected-camera='gpsMinDistance: 5'> </a-camera> -->
