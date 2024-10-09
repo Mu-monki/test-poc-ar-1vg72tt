@@ -19,9 +19,9 @@ let viewedMarkers = [
     },
 ]
 
-$("#sakunwari-audio").on("ended", function() {
-    console.log("Audio Finished!");
-});
+// $("#sakunwari-audio").on("ended", function() {
+//     console.log("Audio Finished!");
+// });
 
 AFRAME.registerComponent('markerhandler', {
     init: function () {
@@ -54,4 +54,11 @@ AFRAME.registerComponent('markerhandler', {
             sakunwariAudio.pause();
         });
     }
+});
+
+// DOCUMENT READY CODE BLOCK
+$(document).ready(function() {
+    $("#sakunwari-audio").on("ended", function() {
+        console.log("Audio Finished!");
+    });
 });
