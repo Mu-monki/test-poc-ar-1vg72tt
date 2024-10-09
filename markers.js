@@ -13,15 +13,37 @@ let viewedMarkers = [
         finished: false,
     },
     {
-        name: 'sakunwari',
+        name: 'taob',
         viewed: false,
         finished: false,
     },
 ]
 
-// $("#sakunwari-audio").on("ended", function() {
-//     console.log("Audio Finished!");
-// });
+function updateViewedMarkers(marker, action, value) {
+    switch(marker) {
+        case "sakunwari":
+            if(action == 'viewed') {
+                viewedMarkers[0].viewed = value;
+            } else if(action == 'finished') {
+                viewedMarkers[0].finished = value;
+            }
+            break;
+        case "klimabukasan":
+            if(action == 'viewed') {
+                viewedMarkers[1].viewed = value;
+            } else if(action == 'finished') {
+                viewedMarkers[1].finished = value;
+            }
+            break;
+        case "taob":
+            if(action == 'viewed') {
+                viewedMarkers[2].viewed = value;
+            } else if(action == 'finished') {
+                viewedMarkers[2].finished = value;
+            }
+            break;
+    }
+}
 
 AFRAME.registerComponent('markerhandler', {
     init: function () {
@@ -42,7 +64,11 @@ AFRAME.registerComponent('markerhandler', {
                     break;
                 case 'marker-sakunwari':
                     const sakunwariAudio = document.getElementById('sakunwari-audio');
+                    updateViewedMarkers('sakunwari', 'viewed', true);
                     sakunwariAudio.play();
+
+                    console.log('MARKER STATES: ', viewedMarkers);
+
                     break;
             }
         });
@@ -59,6 +85,8 @@ AFRAME.registerComponent('markerhandler', {
 // DOCUMENT READY CODE BLOCK
 $(document).ready(function() {
     $("#sakunwari-audio").on("ended", function() {
+        updateViewedMarkers('sakunwari', 'finished', true)
         console.log("Audio Finished!");
+        console.log('MARKER STATES: ', viewedMarkers);
     });
 });
