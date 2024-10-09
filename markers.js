@@ -1,5 +1,28 @@
 console.log('JS File Loaded!')
 
+// FOR TRACKING OF MARKERS
+let viewedMarkers = [
+    {
+        name: 'sakunwari',
+        viewed: false,
+        finished: false,
+    },
+    {
+        name: 'klimabukasan',
+        viewed: false,
+        finished: false,
+    },
+    {
+        name: 'sakunwari',
+        viewed: false,
+        finished: false,
+    },
+]
+
+$("#sakunwari-audio").on("ended", function() {
+    console.log("Audio Finished!");
+});
+
 AFRAME.registerComponent('markerhandler', {
     init: function () {
         const scene = this.el.sceneEl;
