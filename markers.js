@@ -19,6 +19,25 @@ let viewedMarkers = [
     },
 ]
 
+const KLIMABUKASAN_CARDS = [
+    {
+        name: 'TEST',
+        fileName: 'CC-01',
+        description: 'Lorem Ipsum',
+        cardType: 'CC'
+    },
+    {
+        name: 'TEST 2',
+        fileName: 'CC-02',
+        description: 'Lorem Ipsum',
+        cardType: 'CC'
+    }
+]
+
+function updateKlimabukasanCard() {
+    
+}
+
 function updateViewedMarkers(marker, action, value) {
     switch(marker) {
         case "sakunwari":
