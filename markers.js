@@ -1,15 +1,34 @@
 console.log('JS File Loaded!')
 
-// const sakunwari_marker = document.getElementById('marker-klimabukasan'); // Replace with the ID of your marker entity
-// const sakunwari_audio = document.getElementById('sakunwari-audio');
+AFRAME.registerComponent('markerhandler', {
+    init: function () {
+        const scene = this.el.sceneEl;
+        const audioElements = scene.querySelectorAll('audio');
 
-// sakunwari_marker.addEventListener('markerFound', () => {
-//     console.log('MARKER FOUND!')
-//     sakunwari_audio.play();
-// });
+        scene.addEventListener('markerFound', (e) => {
+            const markerId = e.target.id;
+            console.log('MARKER FOUND!')
+            console.log('MARKER ID: ', markerId)
 
+            console.log('AUDIO ELEMENTS: ', audioElements)
 
-// sakunwari_marker.addEventListener('markerLost', () => {
-//     console.log('MARKER LOST!')
-//     sakunwari_audio.pause();
-// });
+            switch (markerId) {
+                case 'marker-klimabukasan':
+                    // const klimabukasanAudio = audioElements.find((audio) => audio.id === 'sakunwari-audio');
+                    // klimabukasanAudio.play();
+                    break;
+                case 'marker-sakunwari':
+                    const sakunwariAudio = document.getElementById('sakunwari-audio');
+                    sakunwariAudio.play();
+                    break;
+            }
+        });
+
+        scene.addEventListener('markerLost', (e) => {
+            console.log('MARKER LOST!')
+            console.log('EVENT', e)
+            const sakunwariAudio = document.getElementById('sakunwari-audio');
+            sakunwariAudio.pause();
+        });
+    }
+});
