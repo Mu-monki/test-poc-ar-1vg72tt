@@ -1,6 +1,11 @@
 @font-face {
-    font-family: Chopin;
-    src: url('assets/fonts/chopin-medium.otf') format("opentype")
+    font-family: 'Chopin';
+    src: url('fonts/chopin-medium.otf') format("opentype")
+}
+
+@font-face {
+    font-family: 'Gunterz';
+    src: url('fonts/gunterz-medium.otf') format("opentype")
 }
 
 .splash {
@@ -48,4 +53,8 @@
 
   .padding-1 {
     padding: 5px;
+  }
+
+  #splash_typed {
+    font-family: 'Chopin';
   }
