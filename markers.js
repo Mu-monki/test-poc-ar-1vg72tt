@@ -72,6 +72,14 @@ function updateViewedMarkers(marker, action, value) {
     }
 }
 
+function handleLeftArrowClick() {
+    console.log('LEFT ARROW CLICKED')
+}
+
+function handleRightArrowClick() {
+    console.log('RIGHT ARROW CLICKED')
+}
+
 AFRAME.registerComponent('markerhandler', {
     init: function () {
         const scene = this.el.sceneEl;
@@ -109,6 +117,19 @@ AFRAME.registerComponent('markerhandler', {
     }
 });
 
+AFRAME.registerComponent('arrowhandler', {
+    init: function () {
+        document.getElementById('left-arrow').addEventListener('tap', function () {
+            console.log('Left arrow tapped!');
+            alert('LEFT');
+        });
+        document.getElementById('right-arrow').addEventListener('tap', function () {
+            console.log('Right arrow tapped!');
+            alert('RIGHT');
+        });
+    }
+});
+
 // DOCUMENT READY CODE BLOCK
 $(document).ready(function() {
     $("#sakunwari-audio").on("ended", function() {
@@ -117,9 +138,14 @@ $(document).ready(function() {
         console.log('MARKER STATES: ', viewedMarkers);
     });
 
-    var typed = new Typed('#splash_typed', {
+    let typed = new Typed('#splash_typed', {
         strings: ['Governance Reform, Innovation and Transformation Laboratories', 'GRIT Labs'],
         typeSpeed: 70,
         backDelay: 400,
     });
+
+    $("#left-arrow").on("click", () => {
+        console.log('LEFT ARROW CLICKED')
+    });
+    $("#right-arrow").on("click", handleRightArrowClick);
 });
