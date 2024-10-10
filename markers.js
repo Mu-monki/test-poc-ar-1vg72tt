@@ -1,5 +1,12 @@
 console.log('JS File Loaded!')
 
+const splash = document.querySelector('.splash');
+document.addEventListener('DOMContentLoaded', (e) => {
+    setTimeout(() => {
+        splash.classList.add('display-none');
+    }, 2000)
+});
+
 // FOR TRACKING OF MARKERS
 let viewedMarkers = [
     {
@@ -35,7 +42,7 @@ const KLIMABUKASAN_CARDS = [
 ]
 
 function updateKlimabukasanCard() {
-    
+
 }
 
 function updateViewedMarkers(marker, action, value) {
