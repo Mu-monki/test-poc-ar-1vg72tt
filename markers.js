@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     setTimeout(() => {
         $("#splash").addClass('display-none');
         // splash.classList.add('display-none');
-    }, 2000)
+    }, 10000)
 });
 
 // FOR TRACKING OF MARKERS
@@ -115,5 +115,11 @@ $(document).ready(function() {
         updateViewedMarkers('sakunwari', 'finished', true)
         console.log("Audio Finished!");
         console.log('MARKER STATES: ', viewedMarkers);
+    });
+
+    var typed = new Typed('#splash_typed', {
+        strings: ['Governance Reform, Innovation and Transformation Laboratories', 'GRIT Labs'],
+        typeSpeed: 70,
+        backDelay: 400,
     });
 });
