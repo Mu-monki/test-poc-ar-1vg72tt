@@ -3,7 +3,7 @@ console.log('JS File Loaded!')
 // const splash = document.querySelector('.splash');
 document.addEventListener('DOMContentLoaded', (e) => {
     setTimeout(() => {
-        $("#splash").add('display-none');
+        $("#splash").addClass('display-none');
         // splash.classList.add('display-none');
     }, 2000)
 });
