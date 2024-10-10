@@ -1,9 +1,10 @@
 console.log('JS File Loaded!')
 
-const splash = document.querySelector('.splash');
+// const splash = document.querySelector('.splash');
 document.addEventListener('DOMContentLoaded', (e) => {
     setTimeout(() => {
-        splash.classList.add('display-none');
+        $("#splash").add('display-none');
+        // splash.classList.add('display-none');
     }, 2000)
 });
 
