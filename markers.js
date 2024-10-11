@@ -117,18 +117,22 @@ AFRAME.registerComponent('markerhandler', {
     }
 });
 
-AFRAME.registerComponent('arrowhandler', {
-    init: function () {
-        document.getElementById('left-arrow').addEventListener('tap', function () {
-            console.log('Left arrow tapped!');
-            alert('LEFT');
-        });
-        document.getElementById('right-arrow').addEventListener('tap', function () {
-            console.log('Right arrow tapped!');
-            alert('RIGHT');
-        });
-    }
-});
+// AFRAME.registerComponent('arrowhandler', {
+//     init: function () {
+//         console.log('ARROW HANDLER', this.el)
+//         console.log('OBJECT 3D', this.el.object3D)
+//         this.el.addEventListener('click', function () {
+//             console.log('CLICKED');
+//             if (this.id == 'left-arrow') {
+//                 console.log('Left arrow clicked!');
+//                 alert('LEFT');
+//             } else if (this.id == 'right-arrow') {
+//                 console.log('Right arrow clicked!');
+//                 alert('RIGHT');
+//             }
+//         });
+//     }
+//   });
 
 // DOCUMENT READY CODE BLOCK
 $(document).ready(function() {
@@ -143,9 +147,4 @@ $(document).ready(function() {
         typeSpeed: 70,
         backDelay: 400,
     });
-
-    $("#left-arrow").on("click", () => {
-        console.log('LEFT ARROW CLICKED')
-    });
-    $("#right-arrow").on("click", handleRightArrowClick);
 });
