@@ -80,7 +80,7 @@ function handleRightArrowClick() {
     console.log('RIGHT ARROW CLICKED')
 }
 
-function checkFinishedStates() {
+function checkFinishedStates(game) {
     const FEEDBACK_FORM_URL = 'https://forms.gle/SBFnXHEsDRCcJLL69'
 
     // CHECKED IF ALL IS FINISHED
@@ -89,9 +89,9 @@ function checkFinishedStates() {
     // if(viewedMarkers[0].finished && viewedMarkers[1].finished && viewedMarkers[2].finished) {
         Swal.fire({
             title: "Tell us what you think!",
-            text: "You have finished viewing every board game, tell us what you think!",
+            html: `You have finished viewing the <strong>${game}</strong> board game<br/> Tell us what you think!`,
             icon: "info",
-            confirmButtonText: "Leave a Review",
+            confirmButtonText: "Keep in touch",
             allowOutsideClick: false
         }).then(function() {
             window.open(FEEDBACK_FORM_URL, '_blank');
@@ -200,24 +200,27 @@ AFRAME.registerComponent('markerhandler', {
 // DOCUMENT READY CODE BLOCK
 $(document).ready(function() {
     $("#sakunwari-audio").on("ended", function() {
+        const game = 'Sakunwari'
         updateViewedMarkers('sakunwari', 'finished', true)
         console.log("Audio Finished!");
         console.log('MARKER STATES: ', viewedMarkers);
-        checkFinishedStates()
+        checkFinishedStates(game)
     });
 
     $("#taob-audio").on("ended", function() {
+        const game = 'Táob'
         updateViewedMarkers('taob', 'finished', true)
         console.log("Audio Finished!");
         console.log('MARKER STATES: ', viewedMarkers);
-        checkFinishedStates()
+        checkFinishedStates(game)
     });
 
     $("#klimabukasan-audio").on("ended", function() {
+        const game = 'Klimabukasan'
         updateViewedMarkers('klimabukasan', 'finished', true)
         console.log("Audio Finished!");
         console.log('MARKER STATES: ', viewedMarkers);
-        checkFinishedStates()
+        checkFinishedStates(game)
     });
 
     let typed = new Typed('#splash_typed', {
