@@ -39,6 +39,7 @@
             embedded
             gesture-detector
             markerhandler
+            raycaster="objects: [data-raycastable]"
         >
             <!-- custom-marker-handler="maxMarkers: 1" -->
             <!-- arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: true;" -->
@@ -115,8 +116,9 @@
                 id="marker-klimabukasan"
                 type="barcode"
                 value="0"
-                cursor="rayOrigin: track; fuse: true; cursor: pointer"
                 raycaster="objects: [data-raycastable]"
+                cursor="rayOrigin: track"
+                arrowhandler
             >
                 <a-image id="klima-txt" src="assets/klima-txt.png" position='0 -0.1 -2' rotation="-90 0 0" scale="2.7 1.7 1"></a-image>
                 <a-image 
