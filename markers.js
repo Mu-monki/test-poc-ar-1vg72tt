@@ -208,7 +208,7 @@ AFRAME.registerComponent('arrowhandler', {
             console.log('Updating Card...');
         });
 
-        klimaCard.addEventListener('tap', function(e) {
+        klimaCard.addEventListener('touchstart', function(e) {
             console.log('tap event', e)
             console.log('Card tapped!');
             updateKlimabukasanCard();
