@@ -42,8 +42,18 @@ const KLIMABUKASAN_CARDS = [
     }
 ]
 
-function updateKlimabukasanCard() {
+let cardIdx = 0;
 
+function updateKlimabukasanCard() {
+    let klimaCard = document.getElementById('klima-card');
+    const CARD_LIMIT = 44;
+
+    cardIdx++;
+    const cardNum = cardIdx % (CARD_LIMIT + 1);
+
+    let cardString = `0${cardNum}`;
+    console.log('CD STRING', cardString)
+    klimaCard.setAttribute('src', `assets/cards/klima/${cardString}.png`);
 }
 
 function updateViewedMarkers(marker, action, value) {
@@ -183,6 +193,94 @@ AFRAME.registerComponent('markerhandler', {
         });
     }
 });
+
+AFRAME.registerComponent('arrowhandler', {
+    init: function (e) {
+        const leftArrow = document.getElementById('left-arrow');
+        const rightArrow = document.getElementById('right-arrow');
+        const klimaCard = document.getElementById('klima-card');
+
+        // console.log('ARROW HANDLER LOGGED')
+        // console.log('EVENT', e)
+
+        klimaCard.addEventListener('click', function(e) {
+            console.log('inner event', e)
+            console.log('Card clicked!');
+            updateKlimabukasanCard();
+            console.log('Updating Card...');
+        });
+
+        // rightArrow.addEventListener('click', function(e) {
+        //     console.log('inner event', e)
+        //     console.log('Right arrow clicked!');
+        // });
+    }
+});
+
+// const activeMarkers = new Set(); 
+
+// AFRAME.registerComponent('custom-marker-handler', {
+//     schema: {
+//         maxMarkers: { type: 'int', default: 1 }
+//     },
+    
+//     init: function () {
+//         // this.activeMarkers = new Set(); // To track active markers
+//         const scene = this.el.sceneEl;
+
+//         scene.addEventListener('markerFound', (e) => {
+//             const markerId = e.target.id;
+//             console.log('MARKER FOUND!', markerId);
+
+//             // If we already have the maximum number of markers, ignore this one
+//             if (activeMarkers.size >= this.data.maxMarkers) {
+//                 // Hide the newly found marker
+//                 e.target.setAttribute('visible', 'false');
+//                 return;
+//             }
+
+//             // Add the marker to the active set
+//             activeMarkers.add(markerId);
+//             this.handleMarkerFound(markerId);
+
+//             console.log('ACTIVE MARKERS', activeMarkers)
+//         });
+
+//         scene.addEventListener('markerLost', (e) => {
+//             const markerId = e.target.id;
+//             console.log('MARKER LOST!', markerId);
+
+//             // Remove the marker from the active set
+//             activeMarkers.delete(markerId);
+//             this.handleMarkerLost(markerId);
+
+//             console.log('ACTIVE MARKERS', activeMarkers)
+//         });
+//     },
+
+//     handleMarkerFound: function(markerId) {
+//         // Show the newly found marker
+//         document.getElementById(markerId).setAttribute('visible', 'true');
+
+//         // Hide all other markers
+//         const markers = document.querySelectorAll('a-marker');
+//         markers.forEach((marker) => {
+//             if (marker.id !== markerId) {
+//                 marker.setAttribute('visible', 'false');
+//             }
+//         });
+//     },
+
+//     handleMarkerLost: function(markerId) {
+//         // Show all other markers
+//         const markers = document.querySelectorAll('a-marker');
+//         markers.forEach((marker) => {
+//             if (marker.id !== markerId) {
+//                 marker.setAttribute('visible', 'true');
+//             }
+//         });
+//     }
+// });
 
 // AFRAME.registerComponent('arrowhandler', {
 //     init: function () {

@@ -5,7 +5,6 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-        <!-- <script src="lib/aframe-ar.js"></script> -->
         <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
@@ -41,6 +40,7 @@
             gesture-detector
             markerhandler
         >
+            <!-- custom-marker-handler="maxMarkers: 1" -->
             <!-- arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: true;" -->
             <a-assets>
                 <a-asset-item
@@ -115,30 +115,28 @@
                 id="marker-klimabukasan"
                 type="barcode"
                 value="0"
-                markerhandler
+                cursor="rayOrigin: mouse"
+                raycaster="objects: [data-raycastable]"
             >
-                <a-image id="left-arrow" src="assets/arrow.png" position='-2 0.0 0' rotation="-90 90 0" scale="1 1 1"></a-image>
-                <a-image id="klima-card" src="assets/cards/rc/RC-01.png" position='0 0.0 0' rotation="-90 0 0" scale="2.5 3.5 1"></a-image>
-                <a-image id="right-arrow" src="assets/arrow.png" position='2 0.0 0' rotation="-90 -90 0" scale="1 1 1"></a-image>
+                <a-image id="klima-txt" src="assets/klima-txt.png" position='0 -0.1 -2' rotation="-90 0 0" scale="2.7 1.7 1"></a-image>
+                <a-image 
+                    id="klima-card" 
+                    src="assets/cards/rc/RC-01.png" 
+                    position='0 0.0 0' 
+                    rotation="-90 0 0" 
+                    scale="1.7 2.7 1"
+                    data-raycastable
+                    cursor="rayOrigin: mouse; fuse: true; cursor: pointer"
+                    arrowhandler
+                ></a-image>
+                <a-image id="klima-instructions" src="assets/klima-instruction.png" position='0 -0.1 2' rotation="-90 0 0" scale="2.7 1.7 1"></a-image>
             </a-marker>
             <a-marker
-                id="marker-sakunwari"
+                id="marker-sakunwari"   
                 type="barcode"
                 value="1"
                 markerhandler
             >
-                <!-- <a-entity
-                    id="bowser-model-2"
-                    scale="0.3 0.3 0.3"
-                    position="2.5 0.5 0"
-                    rotation="0 0 0"
-                    animation-mixer="loop: repeat"
-                    gltf-model="#whale"
-                    animation="property: object3D.position.x; to: -1; loop: true; dur:9000"
-                    class="clickable"
-                > -->
-                </a-entity>
-
                 <a-image src="assets/sakunwari-full.png" position='0 0 2.3' rotation="-90 0 0" scale="3.6 1 2.3"></a-image>
                 <a-image src="assets/sakunwari-map-detailed.png" position='0 0.0 0' rotation="-90 0 0" scale="3 3 3"></a-image>
                 <a-image src="assets/sakunwari-map.png" position='0 2 -2.0' rotation="0 0 0" scale="3 3 3"></a-image>
