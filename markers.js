@@ -334,7 +334,7 @@ $(document).ready(function() {
 
     let typed = new Typed('#splash_typed', {
         strings: ['Governance Reform, Innovation and Transformation Research Laboratories', 'GRIT Labs'],
-        typeSpeed: 80,
+        typeSpeed: 99,
         backDelay: 400,
     });
 });
