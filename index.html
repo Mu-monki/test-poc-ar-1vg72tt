@@ -11,6 +11,8 @@
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
         <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.14.3/dist/sweetalert2.all.min.js "></script>
+        <link href=" https://cdn.jsdelivr.net/npm/sweetalert2@11.14.3/dist/sweetalert2.min.css " rel="stylesheet">
         <script src="markers.js"></script>
     </head>
 
@@ -96,7 +98,17 @@
                     scale="1 1 1"
                 ></a-asset-item>
 
-                <audio id="sakunwari-audio" src="assets//audio/sakunwari-sample.mp3" preload="auto"></audio>
+                <!-- THE COOLER WATER MODEL -->
+                <a-asset-item
+                    id="water_comp"
+                    src="assets/water_waves.glb"
+                    scale="0.00001 0.00001 0.00001"
+                ></a-asset-item>
+
+                <!-- <audio id="sakunwari-audio" src="assets//audio/sakunwari-sample.mp3" preload="auto"></audio> -->
+                <audio id="sakunwari-audio" src="assets//audio/sakunwari-audio.mp3" preload="auto"></audio>
+                <audio id="klimabukasan-audio" src="assets//audio/klimabukasan-audio.mp3" preload="auto"></audio>
+                <audio id="taob-audio" src="assets//audio/taob-audio.mp3" preload="auto"></audio>
             </a-assets>
             
             <a-marker
@@ -115,7 +127,7 @@
                 value="1"
                 markerhandler
             >
-                <a-entity
+                <!-- <a-entity
                     id="bowser-model-2"
                     scale="0.3 0.3 0.3"
                     position="2.5 0.5 0"
@@ -124,7 +136,7 @@
                     gltf-model="#whale"
                     animation="property: object3D.position.x; to: -1; loop: true; dur:9000"
                     class="clickable"
-                >
+                > -->
                 </a-entity>
 
                 <a-image src="assets/sakunwari-full.png" position='0 0 2.3' rotation="-90 0 0" scale="3.6 1 2.3"></a-image>
@@ -161,6 +173,14 @@
                     animation-mixer="loop: repeat"
                     gltf-model="#water"
                 >
+                <!-- <a-entity
+                    id="bowser-model-water"
+                    scale="0.007 0.007 0.007"
+                    position="0.2 0 0"
+                    rotation="0 0 0"
+                    animation-mixer="loop: repeat"
+                    gltf-model="#water_comp"
+                > -->
                 <!-- scale="0.006 0.006 0.006" -->
                 </a-entity> 
 

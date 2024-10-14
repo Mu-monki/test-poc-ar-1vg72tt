@@ -80,27 +80,64 @@ function handleRightArrowClick() {
     console.log('RIGHT ARROW CLICKED')
 }
 
+function checkFinishedStates() {
+    const FEEDBACK_FORM_URL = 'https://forms.gle/SBFnXHEsDRCcJLL69'
+
+    // CHECKED IF ALL IS FINISHED
+    console.log('Checking Finished States: ', viewedMarkers)
+
+    if(viewedMarkers[0].finished && viewedMarkers[1].finished && viewedMarkers[2].finished) {
+        Swal.fire({
+            title: "Tell us what you think!",
+            text: "You have finished viewing every board game, tell us what you think!",
+            icon: "info",
+            confirmButtonText: "Leave a Review",
+            allowOutsideClick: false
+        }).then(function() {
+            window.open(FEEDBACK_FORM_URL, '_blank');
+        });
+    }
+}
+
 AFRAME.registerComponent('markerhandler', {
     init: function () {
         const scene = this.el.sceneEl;
-        const audioElements = scene.querySelectorAll('audio');
+        // const audioElements = scene.querySelectorAll('audio');
 
         scene.addEventListener('markerFound', (e) => {
             const markerId = e.target.id;
             console.log('MARKER FOUND!')
             console.log('MARKER ID: ', markerId)
 
-            console.log('AUDIO ELEMENTS: ', audioElements)
+            // console.log('AUDIO ELEMENTS: ', audioElements)
 
             switch (markerId) {
                 case 'marker-klimabukasan':
-                    // const klimabukasanAudio = audioElements.find((audio) => audio.id === 'sakunwari-audio');
-                    // klimabukasanAudio.play();
+                    const klimabukasanAudio = document.getElementById('klimabukasan-audio');
+                    updateViewedMarkers('klimabukasan', 'viewed', true);
+                    klimabukasanAudio.load();
+                    klimabukasanAudio.addEventListener('canplaythrough', () => {
+                        console.log('AUDIO READY TO PLAY!');
+                        klimabukasanAudio.play();
+                    });
+
+                    console.log('MARKER STATES: ', viewedMarkers);
+
                     break;
                 case 'marker-sakunwari':
                     const sakunwariAudio = document.getElementById('sakunwari-audio');
                     updateViewedMarkers('sakunwari', 'viewed', true);
+                    sakunwariAudio.load();
                     sakunwariAudio.play();
+
+                    console.log('MARKER STATES: ', viewedMarkers);
+
+                    break;
+                case 'marker-taob':
+                    const taobAudio = document.getElementById('taob-audio');
+                    updateViewedMarkers('taob', 'viewed', true);
+                    taobAudio.load();
+                    taobAudio.play();
 
                     console.log('MARKER STATES: ', viewedMarkers);
 
@@ -109,10 +146,36 @@ AFRAME.registerComponent('markerhandler', {
         });
 
         scene.addEventListener('markerLost', (e) => {
+            const markerId = e.target.id;
             console.log('MARKER LOST!')
             console.log('EVENT', e)
-            const sakunwariAudio = document.getElementById('sakunwari-audio');
-            sakunwariAudio.pause();
+            // const sakunwariAudio = document.getElementById('sakunwari-audio');
+            // const klimabukasanAudio = document.getElementById('klimabukasan-audio');
+            // const taobAudio = document.getElementById('taob-audio');
+            // sakunwariAudio.pause();
+            // klimabukasanAudio.pause();
+            // taobAudio.pause();
+
+            switch (markerId) {
+                case 'marker-klimabukasan':
+                    console.log('PAUSE')
+                    const klimabukasanAudio = document.getElementById('klimabukasan-audio');
+                    klimabukasanAudio.pause();
+
+                    break;
+                case 'marker-sakunwari':
+                    console.log('PAUSE')
+                    const sakunwariAudio = document.getElementById('sakunwari-audio');
+                    sakunwariAudio.pause();
+
+                    break;
+                case 'marker-taob':
+                    console.log('PAUSE')
+                    const taobAudio = document.getElementById('taob-audio');
+                    taobAudio.pause();
+
+                    break;
+            }
         });
     }
 });
@@ -140,6 +203,21 @@ $(document).ready(function() {
         updateViewedMarkers('sakunwari', 'finished', true)
         console.log("Audio Finished!");
         console.log('MARKER STATES: ', viewedMarkers);
+        checkFinishedStates()
+    });
+
+    $("#taob-audio").on("ended", function() {
+        updateViewedMarkers('taob', 'finished', true)
+        console.log("Audio Finished!");
+        console.log('MARKER STATES: ', viewedMarkers);
+        checkFinishedStates()
+    });
+
+    $("#klimabukasan-audio").on("ended", function() {
+        updateViewedMarkers('klimabukasan', 'finished', true)
+        console.log("Audio Finished!");
+        console.log('MARKER STATES: ', viewedMarkers);
+        checkFinishedStates()
     });
 
     let typed = new Typed('#splash_typed', {
