@@ -196,8 +196,6 @@ AFRAME.registerComponent('markerhandler', {
 
 AFRAME.registerComponent('arrowhandler', {
     init: function (e) {
-        const leftArrow = document.getElementById('left-arrow');
-        const rightArrow = document.getElementById('right-arrow');
         const klimaCard = document.getElementById('klima-card');
 
         // console.log('ARROW HANDLER LOGGED')
