@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     setTimeout(() => {
         $("#splash").addClass('display-none');
         // splash.classList.add('display-none');
-    }, 10000)
+    }, 13000)
 });
 
 // FOR TRACKING OF MARKERS
@@ -327,7 +327,7 @@ $(document).ready(function() {
 
     let typed = new Typed('#splash_typed', {
         strings: ['Governance Reform, Innovation and Transformation Research Laboratories', 'GRIT Labs'],
-        typeSpeed: 70,
+        typeSpeed: 80,
         backDelay: 400,
     });
 });
