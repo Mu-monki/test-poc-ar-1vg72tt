@@ -210,6 +210,13 @@ AFRAME.registerComponent('arrowhandler', {
             console.log('Updating Card...');
         });
 
+        klimaCard.addEventListener('tap', function(e) {
+            console.log('tap event', e)
+            console.log('Card tapped!');
+            updateKlimabukasanCard();
+            console.log('Updating Card...');
+        });
+
         // rightArrow.addEventListener('click', function(e) {
         //     console.log('inner event', e)
         //     console.log('Right arrow clicked!');
