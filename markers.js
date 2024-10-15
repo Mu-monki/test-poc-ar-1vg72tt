@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     setTimeout(() => {
         $("#splash").addClass('display-none');
         // splash.classList.add('display-none');
-    }, 10000)
+    }, 11000)
 });
 
 // FOR TRACKING OF MARKERS
@@ -102,12 +102,12 @@ function checkFinishedStates(game) {
             icon: "info",
             confirmButtonText: "Keep in touch",
             allowOutsideClick: false,
-            didOpen: function () {
-                // PLAY AUDIO
-                const connectAudio = document.getElementById('connect-audio');
-                connectAudio.play();
-                console.log('playing connect audio', connectAudio)
-            }
+            // didOpen: function () {
+            //     // PLAY AUDIO
+            //     const connectAudio = document.getElementById('connect-audio');
+            //     connectAudio.play();
+            //     console.log('playing connect audio', connectAudio)
+            // }
         }).then(function() {
             window.open(FEEDBACK_FORM_URL, '_blank');
         });
@@ -340,7 +340,7 @@ $(document).ready(function() {
 
     let typed = new Typed('#splash_typed', {
         strings: ['Governance Reform, Innovation and Transformation Research Laboratories', 'GRIT Labs'],
-        typeSpeed: 30,
+        typeSpeed: 40,
         backDelay: 400,
     });
 });
