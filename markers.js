@@ -95,14 +95,19 @@ function checkFinishedStates(game) {
 
     // CHECKED IF ALL IS FINISHED
     console.log('Checking Finished States: ', viewedMarkers)
-
     // if(viewedMarkers[0].finished && viewedMarkers[1].finished && viewedMarkers[2].finished) {
         Swal.fire({
             title: "Tell us what you think!",
             html: `You have finished viewing the <strong>${game}</strong> board game<br/><br/>Tell us what you think!`,
             icon: "info",
             confirmButtonText: "Keep in touch",
-            allowOutsideClick: false
+            allowOutsideClick: false,
+            didOpen: function () {
+                // PLAY AUDIO
+                const connectAudio = document.getElementById('connect-audio');
+                connectAudio.play();
+                console.log('playing connect audio', connectAudio)
+            }
         }).then(function() {
             window.open(FEEDBACK_FORM_URL, '_blank');
         });
