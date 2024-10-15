@@ -135,6 +135,9 @@ AFRAME.registerComponent('markerhandler', {
                     // });
                     klimabukasanAudio.play();
 
+                    // "SHAKE" CARD TO TOGGLE BEHAVIOR
+                    updateKlimabukasanCard();
+
                     console.log('MARKER STATES: ', viewedMarkers);
 
                     break;
@@ -209,20 +212,6 @@ AFRAME.registerComponent('arrowhandler', {
         });
 
         klimaCard.addEventListener('touchstart', function(e) {
-            console.log('tap event', e)
-            console.log('Card tapped!');
-            updateKlimabukasanCard();
-            console.log('Updating Card...');
-        });
-
-        klimaCard.addEventListener('touchend', function(e) {
-            console.log('tap event', e)
-            console.log('Card tapped!');
-            updateKlimabukasanCard();
-            console.log('Updating Card...');
-        });
-
-        klimaCard.addEventListener('touchmove', function(e) {
             console.log('tap event', e)
             console.log('Card tapped!');
             updateKlimabukasanCard();
@@ -329,7 +318,7 @@ $(document).ready(function() {
     });
 
     $("#taob-audio").on("ended", function() {
-        const game = 'Táob'
+        const game = 'Taob'
         updateViewedMarkers('taob', 'finished', true)
         console.log("Audio Finished!");
         console.log('MARKER STATES: ', viewedMarkers);
