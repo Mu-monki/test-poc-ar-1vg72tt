@@ -1,5 +1,4 @@
 console.log('JS File Loaded!')
-
 // const splash = document.querySelector('.splash');
 document.addEventListener('DOMContentLoaded', (e) => {
     setTimeout(() => {
@@ -7,6 +6,12 @@ document.addEventListener('DOMContentLoaded', (e) => {
         // splash.classList.add('display-none');
     }, 11000)
 });
+
+const userAgent = navigator.userAgent;
+console.log('Browser: ', userAgent);
+if(userAgent.match(/android/i)) {
+    alert('Android Browser Detected!')
+}
 
 // FOR TRACKING OF MARKERS
 let viewedMarkers = [
@@ -102,12 +107,12 @@ function checkFinishedStates(game) {
             icon: "info",
             confirmButtonText: "Keep in touch",
             allowOutsideClick: false,
-            // didOpen: function () {
-            //     // PLAY AUDIO
-            //     const connectAudio = document.getElementById('connect-audio');
-            //     connectAudio.play();
-            //     console.log('playing connect audio', connectAudio)
-            // }
+            didOpen: function () {
+                // PLAY AUDIO
+                const connectAudio = document.getElementById('connect-audio');
+                connectAudio.play();
+                console.log('playing connect audio', connectAudio)
+            }
         }).then(function() {
             window.open(FEEDBACK_FORM_URL, '_blank');
         });
