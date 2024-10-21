@@ -8,9 +8,11 @@ document.addEventListener('DOMContentLoaded', (e) => {
 });
 
 const userAgent = navigator.userAgent;
+const nua = navigator.userAgent;
+const is_android = ((nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('Android ') > -1 &&     nua.indexOf('AppleWebKit') > -1) && !(nua.indexOf('Chrome') > -1));
 console.log('Browser: ', userAgent);
 if(userAgent.match(/android/i)) {
-    alert('Android Browser Detected!')
+    alert('Android Browser Detected: ', userAgent);
 }
 
 // FOR TRACKING OF MARKERS
