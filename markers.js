@@ -8,11 +8,37 @@ document.addEventListener('DOMContentLoaded', (e) => {
 });
 
 const userAgent = navigator.userAgent;
+let offsets = {
+    x: 0,
+    y: 0,
+    z: 0,
+}
+
 console.log('Browser: ', userAgent.toString());
 if(navigator.userAgent.match(/SAMSUNG|Samsung|SGH-[I|N|T]|GT-[I|N]|SM-[A|N|P|T|Z]|SHV-E|SCH-[I|J|R|S]|SPH-L/i)) {
     alert("Samsung Browser Detected");
     // repositioning code here
+    offsets.x = -5;
+    offsets.y = -5;
+    offsets.z = -5;
 }
+
+// Function to reposition the AR entity
+function repositionEntity() {
+    const entity = document.getElementById('klima-card');
+    const currentPosition = entity.getAttribute('position');
+
+    console.log('Repositioning Function Called: ', offsets);
+    // Apply the offsets
+    entity.setAttribute('position', {
+        x: currentPosition.x + offsets.x,
+        y: currentPosition.y + offsets.y,
+        z: currentPosition.z + offsets.z
+    });
+}
+
+// Call the reposition function after a short delay to ensure the entity is loaded
+setTimeout(repositionEntity, 1000);
 
 // FOR TRACKING OF MARKERS
 let viewedMarkers = [
